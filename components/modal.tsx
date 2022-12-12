@@ -1,13 +1,4 @@
-import {
-  Box,
-  Container,
-  useColorMode,
-  useDisclosure,
-  Radio,
-  RadioGroup,
-  Stack,
-  Text
-} from '@chakra-ui/react';
+import { Box, useColorMode, Text } from '@chakra-ui/react';
 import Bowser from 'bowser';
 import {
   Astronaut,
@@ -330,14 +321,12 @@ export default function Modal({
   ]);
 
   return (
-    <Container py={16}>
-      <SimpleConnectModal
-        initialRef={initialFocus}
-        modalHead={modalHead}
-        modalContent={modalContent}
-        modalOpen={isOpen}
-        modalOnClose={onClose}
-      />
-    </Container>
+    <SimpleConnectModal
+      initialRef={initialFocus}
+      modalHead={modalHead}
+      modalContent={modalContent}
+      modalOpen={isOpen}
+      modalOnClose={onClose}
+    />
   );
 }

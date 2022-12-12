@@ -1,4 +1,3 @@
-import { Box, Text } from '@chakra-ui/react';
 import { ChangeChainDropdown, DataType } from '@cosmology-ui/utils';
 import { useEffect, useState } from 'react';
 import { chainList } from './utils/config';
@@ -38,6 +37,7 @@ export default function Dropdown({
   return (
     <ChangeChainDropdown
       data={demoData}
+      selectedItem={selectedItem}
       onChange={(v) => {
         if (v) setSelectedItem(v);
       }}
