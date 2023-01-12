@@ -1,11 +1,13 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from '@cosmology-ui/react';
+import { defaultTheme, ThemeProvider } from '@cosmology-ui/react';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <ThemeProvider>
+      <ChakraProvider theme={defaultTheme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </ThemeProvider>
   );
 }

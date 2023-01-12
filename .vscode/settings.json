@@ -30,5 +30,6 @@
       "pattern": "packages/*",
       "!cwd": false
     }
-  ]
+  ],
+  "cSpell.words": ["bowser", "chakra", "cosmostation", "keplr", "vectis"]
 }

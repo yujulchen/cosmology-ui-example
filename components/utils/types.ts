@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons';
+
 export type ChainListType = {
   chainName: string;
   label: string;

@@ -1,20 +1,29 @@
-import { ChangeChainDropdown, DataType } from '@cosmology-ui/utils';
-import { useEffect, useState } from 'react';
+import {
+  ChangeChainDropdown,
+  DataType,
+  handleSelectChainDropdown
+} from '@cosmology-ui/react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { chainList } from './utils/config';
 
-export default function Dropdown({
-  selectedItem,
-  setSelectedItem
+const Dropdown = ({
+  selectedChain,
+  setSelectedChain
 }: {
-  selectedItem?: DataType;
-  setSelectedItem: (value: DataType) => void;
-}) {
+  selectedChain?: DataType;
+  setSelectedChain: Dispatch<SetStateAction<DataType | undefined>>;
+}) => {
   const [demoData, setDemoData] = useState<DataType[]>([]);
+  const handleChange: handleSelectChainDropdown = (value) => {
+    console.log('selected chain', value);
+    if (value) setSelectedChain(value);
+    if (!value) setSelectedChain(undefined);
+  };
 
   useEffect(() => {
     const formatChainsData = chainList.map((props) => {
       return {
-        chainName: props?.chainName,
+        name: props?.chainName,
         label: props?.label,
         value: props?.value,
         icon: props?.icon
@@ -22,7 +31,7 @@ export default function Dropdown({
     });
     setDemoData([
       {
-        chainName: 'disabled',
+        name: 'disabled',
         label: 'disabled option',
         value: 'disabled',
         icon: {
@@ -37,10 +46,10 @@ export default function Dropdown({
   return (
     <ChangeChainDropdown
       data={demoData}
-      selectedItem={selectedItem}
-      onChange={(v) => {
-        if (v) setSelectedItem(v);
-      }}
+      selectedItem={selectedChain}
+      onChange={handleChange}
     />
   );
-}
+};
+
+export default Dropdown;
