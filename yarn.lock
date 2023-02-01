@@ -855,14 +855,14 @@
   resolved "https://registry.yarnpkg.com/@chakra-ui/visually-hidden/-/visually-hidden-2.0.14.tgz#c54feca28e8110a1d92ba2c718272931d0e181e2"
   integrity sha512-/evqTuCeN3laukL1BPZO8HTzgs+dzq0v6gu/MJFgiSAKGLfInn0/IStKGK2vIluuCtJIgaHVdKcJzr+7sJhd0Q==
 
-"@cosmology-ui/react@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@cosmology-ui/react/-/react-0.1.7.tgz#2053d03084333e064edbc21f1e3a9902ed737b3d"
-  integrity sha512-M0EevCPuDlIzD12gMxbi+N/vQcjEQMnHuC+WSsGlTZPHfGsAzpmQ3RCWcnD2X6l5USZtVdVyBLH+EP/5uFs7Fw==
+"@cosmology-ui/react@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@cosmology-ui/react/-/react-0.1.8.tgz#f8edeef28a2e74a01c1a8855e185400ff68c7c84"
+  integrity sha512-fuBwq65gqsL7WyfR+2n9gNHvq/jzRcxJphlC2axbLt0HMOBG2hUEiBphnhmKAG3w6tuEpXYwnvLPu5AKayUG1g==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@chakra-ui/react" "^2.4.2"
-    "@cosmology-ui/utils" "^0.1.10"
+    "@cosmology-ui/utils" "^0.1.11"
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11"
     bowser "2.11.0"
@@ -873,15 +873,16 @@
     qrcode.react "^3.1.0"
     react "18.2.0"
     react-icons "^4.4.0"
+    react-resize-detector "^8.0.3"
 
-"@cosmology-ui/utils@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@cosmology-ui/utils/-/utils-0.1.10.tgz#41981a93232a4303446e4ab3bca9de718fc67687"
-  integrity sha512-XCCO3qgC/cVbvNn3R1V2o0eV6D0UNhCjPFlgLIHHoR6hyFTL139u+AdBIk722x30DkLlgGAT2ptEckoFO4aTDw==
+"@cosmology-ui/utils@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@cosmology-ui/utils/-/utils-0.1.11.tgz#5ab2f2c3665f6765488981a0da12c93caced7b94"
+  integrity sha512-EIBcMd0nZEqU1mjXJKW7i2gjGbW2Adf9nYaeC9PZLrfAK9840/YClpozVbTTCDH367f4hwEfQZeXafuqdpzDGA==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@chakra-ui/react" "^2.4.2"
-    "@cosmology-ui/utils" "^0.1.10"
+    "@cosmology-ui/utils" "^0.1.11"
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11"
     bowser "2.11.0"
@@ -892,6 +893,7 @@
     qrcode.react "^3.1.0"
     react "18.2.0"
     react-icons "^4.4.0"
+    react-resize-detector "^8.0.3"
 
 "@emotion/babel-plugin@^11.10.5":
   version "11.10.5"
@@ -2740,6 +2742,11 @@ lodash.mergewith@4.6.2:
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
   integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
@@ -3109,6 +3116,13 @@ react-remove-scroll@^2.5.4:
     tslib "^2.1.0"
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
+
+react-resize-detector@^8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-8.0.3.tgz#dab4470aae23bb07deb857230ccf945d000ef99b"
+  integrity sha512-c3eqm5BVcluVhxHsBQnhyPO/5uYB3XHIHz6D1ZOHzU2WcnZF0Cr3KLl5OIozRC2RSsdQlu5vn1PHEqrvKRnIYA==
+  dependencies:
+    lodash "^4.17.21"
 
 react-select@5.7.0:
   version "5.7.0"

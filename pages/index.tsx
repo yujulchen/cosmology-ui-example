@@ -16,9 +16,9 @@ import {
   WalletStatus
 } from '@cosmology-ui/react';
 import { MouseEventHandler, useContext, useState } from 'react';
-import dynamic from 'next/dynamic';
 import DisplayConnectWalletButton from '../components/connect-button';
 import Dropdown from '../components/dropdown';
+import Modal from '../components/modal';
 
 const ThemeButton = ({
   name,
@@ -53,11 +53,6 @@ const ThemeButton = ({
     </Button>
   );
 };
-
-// With no SSR: https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
-const DynamicModal = dynamic(() => import('../components/modal'), {
-  ssr: false
-});
 
 export default function Home() {
   const {
@@ -123,7 +118,7 @@ export default function Home() {
           onClick={onModalOpen}
         />
       </Box>
-      <DynamicModal
+      <Modal
         walletStatus={walletStatus}
         selectedChain={selectedChain}
         isOpen={modalOpen}
