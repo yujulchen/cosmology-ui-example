@@ -4,13 +4,14 @@ import {
   DataType,
   QRCode,
   SimpleConnectModal,
+  SimpleModalView,
   Wallet,
   WalletMode,
   WalletStatus
 } from '@cosmology-ui/react';
 import Bowser from 'bowser';
 import { ReactNode, useEffect, useRef, useState } from 'react';
-import ModalContent from './modals/modal-content';
+import { WalletContent } from './modals/modal-content';
 import ModalHead from './modals/modal-head';
 import WalletList from './modals/modal-list';
 import { WalletData } from './utils/config';
@@ -68,30 +69,26 @@ const Modal = ({
 
   useEffect(() => {
     if (selectedItem) {
-      setModalHead(<ModalHead onBack={handleClear} onClose={handleClose} />);
-      if (selectedItem.mode === WalletMode.Extension && browserInfo) {
-        setModalContent(
-          <ModalContent
-            status={walletStatus}
-            selectedItem={selectedItem}
-            selectedChain={selectedChain}
-            browserInfo={browserInfo}
-          />
-        );
-      }
-      if (selectedItem.mode === WalletMode.WalletConnect) {
-        setModalContent(
-          <QRCode
-            link={selectedItem.downloads ? selectedItem.downloads.default : ''}
-            description={`Use ${selectedItem.prettyName} App to scan`}
-          />
-        );
-      }
+      setModalContent(
+        <SimpleModalView
+          modalHead={<ModalHead onBack={handleClear} onClose={handleClose} />}
+          modalContent={WalletContent(
+            walletStatus,
+            selectedItem,
+            selectedChain,
+            browserInfo
+          )}
+        />
+      );
     }
     if (!selectedItem) {
-      setModalHead(<ModalHead onClose={handleClose} />);
       setModalContent(
-        <WalletList initialFocus={initialRef} walletsData={walletList} />
+        <SimpleModalView
+          modalHead={<ModalHead onClose={handleClose} />}
+          modalContent={
+            <WalletList initialFocus={initialRef} walletsData={walletList} />
+          }
+        />
       );
     }
   }, [selectedItem, walletList, walletStatus, browserInfo]);
@@ -99,8 +96,7 @@ const Modal = ({
   return (
     <SimpleConnectModal
       initialRef={initialRef}
-      modalHead={modalHead}
-      modalContent={modalContent}
+      modalView={modalContent}
       modalOpen={isOpen}
       modalOnClose={onClose}
     />
