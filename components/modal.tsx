@@ -3,6 +3,7 @@ import {
   ButtonShape,
   DataType,
   QRCode,
+  QRCodeStatus,
   SimpleConnectModal,
   SimpleModalView,
   Wallet,
@@ -18,25 +19,25 @@ import { WalletData } from './utils/config';
 import { UserDeviceInfoType } from './utils/types';
 
 const Modal = ({
+  qrStatus,
   walletStatus,
   selectedChain,
   isOpen,
   onClose
 }: {
+  qrStatus: QRCodeStatus;
   walletStatus: WalletStatus;
   selectedChain?: DataType;
   isOpen: boolean;
   onClose: () => void;
 }) => {
   const initialRef = useRef<HTMLButtonElement>(null);
-  const [modalHead, setModalHead] = useState<ReactNode>();
   const [modalContent, setModalContent] = useState<ReactNode>();
   const [walletList, setWalletList] = useState<Wallet[]>([]);
   const [selectedItem, setSelectedItem] = useState<Wallet>();
   const [browserInfo, setBrowserInfo] = useState<UserDeviceInfoType>();
 
   function handleClear() {
-    setModalHead(undefined);
     setModalContent(undefined);
     setSelectedItem(undefined);
   }
@@ -76,7 +77,8 @@ const Modal = ({
             walletStatus,
             selectedItem,
             selectedChain,
-            browserInfo
+            browserInfo,
+            qrStatus
           )}
         />
       );

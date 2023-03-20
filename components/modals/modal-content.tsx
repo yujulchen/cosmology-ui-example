@@ -11,7 +11,8 @@ import {
   SimpleDisplayModalContent,
   DataType,
   WalletMode,
-  QRCode
+  QRCode,
+  QRCodeStatus
 } from '@cosmology-ui/react';
 import NextLink from 'next/link';
 import { UserDeviceInfoType } from '../utils/types';
@@ -48,7 +49,8 @@ export const WalletContent = (
   status: WalletStatus,
   selectedItem: Wallet,
   selectedChain: DataType | undefined,
-  browserInfo: UserDeviceInfoType | undefined
+  browserInfo: UserDeviceInfoType | undefined,
+  qrStatus: QRCodeStatus
 ) => {
   const installInfo =
     selectedItem.downloads && browserInfo
@@ -58,8 +60,14 @@ export const WalletContent = (
   if (selectedItem.mode === WalletMode.WalletConnect) {
     return (
       <QRCode
+        status={qrStatus}
         link={selectedItem.downloads ? selectedItem.downloads.default : ''}
         description={`Use ${selectedItem.prettyName} App to scan`}
+        errorDesc={
+          qrStatus === QRCodeStatus.Error || qrStatus === QRCodeStatus.Expired
+            ? `QRCode is ${status}`
+            : undefined
+        }
       />
     );
   }

@@ -5,7 +5,7 @@ import { defaultTheme, ThemeProvider } from '@cosmology-ui/react';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <ChakraProvider theme={defaultTheme}>
+      <ChakraProvider>
         <Component {...pageProps} />
       </ChakraProvider>
     </ThemeProvider>
